@@ -1,0 +1,161 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page Blank {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+				<meta http-equiv="refresh" content="10;url=/temperatura.html">
+
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Gerenciamento Cofre</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="javascript:">Temperatura Cofre</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                    
+                        <!--[ daily sales section ] start-->
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card daily-sales">
+                                <div class="card-block">
+								<i class="feather icon-cloud_snow"></i>
+                                    <h6 class="mb-4">Temperatura Atual</h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-sun text-c-yellow f-30 m-r-10"></i>{{temperatura}}</h3>
+                                        </div>
+
+                                        <div class="col-3 text-right">
+                                            <p class="m-b-0">C°</p>
+                                        </div>
+                                    </div>
+                                    <div class="progress m-t-30" style="height: 7px;">
+                                        <div class="progress-bar progress-c-theme" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--[ daily sales section ] end-->
+                        <!--[ Monthly  sales section ] starts-->
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card Monthly-sales">
+                                <div class="card-block">
+                                    <h6 class="mb-4">Umidade Atual</h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-wind text-c-gray f-30 m-r-10"></i>{{umidade}}</h3>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <p class="m-b-0">%</p>
+                                        </div>
+                                    </div>
+                                    <div class="progress m-t-30" style="height: 7px;">
+                                        <div class="progress-bar progress-c-theme2" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--[ Monthly  sales section ] end-->
+                        <!--[ year  sales section ] starts-->
+                        <div class="col-md-12 col-xl-4">
+                            <div class="card yearly-sales">
+                                <div class="card-block">
+                                    <h6 class="mb-4">Ar condicionado</h6>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-9">
+                                            <h3 class="f-w-300 d-flex align-items-center  m-b-0"><i class="feather icon-cloud-snow text-c-blue f-30 m-r-10"></i>{{status_ar}}</h3>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <p class="m-b-0">Status</p>
+                                        </div>
+                                    </div>
+                                    <div class="progress m-t-30" style="height: 7px;">
+                                        <div class="progress-bar progress-c-theme" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--[ year  sales section ] end--> 
+							<div class="col-md-12 col-xl-4">
+                            <div class="card yearly-sales">
+									<div class="card-block">
+                                     <h6 class="mb-4">Porta Cofre</h6>
+									  <label for="customRange2">Status: {{status_porta}} </label>
+									  
+									  {%if status_porta =='Aberta'%}
+									  <label for="customRange2">Tempo abertura: {{tempo_porta}} segundos </label> 
+									  {%else%}
+									  <label for="customRange2">Tempo abertura: 0 segundos </label> {%endif%}
+									  <br></br>
+								   <form action="#" method="post">
+									<div class="custom-control custom-radio">
+									
+									
+                                            <input type="radio" id="customRadio1" name="porta" class="custom-control-input" value="Aberta"> 
+                                            <label class="custom-control-label" for="customRadio1">Abrir</label>
+                                        </div>
+										
+                                        
+										<div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="porta" class="custom-control-input" value="Fechada">
+                                            <label class="custom-control-label" for="customRadio2">Fechar</label>
+											<br>	</br>
+                                        </div>
+									 <button name="botao_porta" type="submit" class="btn btn-primary" value="2">Salvar</button>
+									</form>
+                                    </div>
+                                </div>
+							</div>
+						<div class="col-md-12 col-xl-4">
+                            <div class="card yearly-sales">
+									<div class="card-block">
+                                    <h6 class="mb-4">Configuração temperatura</h6>
+								                                                                     
+                                        <label for="customRange1">Mínima atual: {{min}} Cº</label>
+									<form action = "#" method = "post">	
+                                        <input type="range" name="minimo" class="custom-range" id="customRange1" min="0" max="100" step="0.1" oninput="this.nextElementSibling.value = this.value">
+										<output {{min}} for="customRange1" onforminput="value = foo.valueAsNumber;"></output>
+										<h6 class="mb-4"> </h6>
+										<br>	</br>
+									
+                                        <label for="customRange2">Máxima atual: {{max}} Cº</label>
+                                        <input type="range" name="maximo" class="custom-range" id="customRange2" min="0" max="100" step="0.1" oninput="this.nextElementSibling.value = this.value" >
+										<output for="customRange1" onforminput="value = foo.valueAsNumber;"></output>
+										
+										 
+                                       </div>
+									   <button name="botao_porta" type="submit" class="btn btn-primary" value="1">Salvar</button>
+									</form>
+                                    </div>
+                                </div>
+
+						
+                    <!-- [ Main Content ] end -->
+                </div>
+				
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

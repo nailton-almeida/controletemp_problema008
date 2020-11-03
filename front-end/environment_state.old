@@ -1,0 +1,64 @@
+from gerenciador import *
+import random
+import time
+#global status_ar
+
+def gera_temperatura_cofre():
+
+    temp_enviada = 20 #round(random.uniform(23, 24), 1)
+    umidade = round(random.uniform(80, 81), 1)
+    data = {
+        "temperature_cofre": temp_enviada,
+        "umidade": umidade,
+        "temperature_antisala": 26
+    }
+
+    return data
+
+
+def aumento_porta(min, max, temp, status_porta,):
+    abertura = 0
+    while status_porta == "Aberta":
+      if status_porta == "Aberta":
+        #abertura +=1
+        temp += 0.00166
+        status_arcondicionado = ar_condicionado(min,max,temp)
+      return status_arcondicionado
+
+    else:
+        status_arcondicionado = ar_condicionado(min,max,temp)
+        return status_arcondicionado
+
+def ar_condicionado(min,max,temp):
+    temp_ar = temp
+
+    if temp < min:
+        temp_ar += 0.01
+        status_ar ="ON"
+        return temp_ar,status_ar
+    elif temp > max:
+        temp_ar -= 0.01
+        status_ar = "ON"
+        return temp_ar, status_ar
+    else:
+        status_ar = "OFF"
+        return temp_ar,status_ar
+
+
+
+def get_environment_status(min,max,status_porta):
+    pega_info_ambi = Subs()
+    temperatura_interna, umidade = pega_info_ambi.subs_temp()
+
+    temp_atual,status_ar = aumento_porta(min,max,temperatura_interna,status_porta)
+
+
+
+    #print(round(temp_atual,2),umidade,status_ar)
+    return round(temp_atual,1),umidade,status_ar
+
+if __name__ == '__main__':
+        while True:
+         get_environment_status(21.30,23.8,"Aberta")
+
+
