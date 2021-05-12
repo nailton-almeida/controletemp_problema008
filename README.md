@@ -1,4 +1,4 @@
-# Sistema Gerenciador de Controle de Temperatura
+# Sistema Gerenciador de Controle de Temperatura de Ambiente
 
 Neste repositório estão todos os arquivos necessários para a implementação de um dashboard para controle de temperatura de um cofre.
 
