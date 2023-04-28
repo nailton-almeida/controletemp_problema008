@@ -1,5 +1,7 @@
 # Sistema Gerenciador de Controle de Temperatura de Ambiente
 
+Projeto desenvolvido durante realização do Mestrado em Ciência da Computação, cursado no Universidade Estadual de Feira de Santana.
+
 Neste repositório estão todos os arquivos necessários para a implementação de um dashboard para controle de temperatura de um cofre.
 
 <br />
